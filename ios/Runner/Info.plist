@@ -49,5 +49,8 @@
 	<key>NSCameraUsageDescription</key>
     <string>This application requires camera access for augmented reality functionality.</string>
     
+    <!-- 添加最低系統版本 -->
+    <key>MinimumOSVersion</key>
+    <string>13.0</string>
 </dict>
 </plist>
