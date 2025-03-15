@@ -45,7 +45,7 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
-	
+	<!-- 修改Info.plist添加相机权限 -->
 	<key>NSCameraUsageDescription</key>
     <string>This application requires camera access for augmented reality functionality.</string>
     
