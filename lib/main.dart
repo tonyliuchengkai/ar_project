@@ -15,7 +15,8 @@ void main() {
 
 // 應用根組件
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  // 使用 super 參數語法代替舊語法
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
