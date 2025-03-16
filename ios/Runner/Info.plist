@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <!-- 修改Info.plist添加相机权限 -->
+	<key>NSCameraUsageDescription</key>
+    <string>This application requires camera access for augmented reality functionality.</string>
+
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -45,9 +49,7 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
-	<!-- 修改Info.plist添加相机权限 -->
-	<key>NSCameraUsageDescription</key>
-    <string>This application requires camera access for augmented reality functionality.</string>
+	
     
     <!-- 添加最低系統版本 -->
     <key>MinimumOSVersion</key>
