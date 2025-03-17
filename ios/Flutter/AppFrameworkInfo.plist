@@ -20,6 +20,9 @@
   <string>????</string>
   <key>CFBundleVersion</key>
   <string>1.0</string>
+  <!-- 修改Info.plist添加相机权限 -->
+	<key>NSCameraUsageDescription</key>
+  <string>This application requires camera access for augmented reality functionality.</string>
   <key>MinimumOSVersion</key>
   <string>13.0</string>
 </dict>
