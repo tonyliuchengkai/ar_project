@@ -1,0 +1,163 @@
+PODS:
+  - ar_flutter_plugin_2 (0.6.2):
+    - ARCoreNanoPbUpdated/CloudAnchors (~> 1.46.0.2)
+    - Flutter
+    - GLTFSceneKit
+    - SwiftJWT
+  - ARCoreNanoPbUpdated/Base (1.46.0.2):
+    - GoogleDataTransport (~> 10.1.0)
+    - nanopb (~> 3.30910)
+  - ARCoreNanoPbUpdated/CloudAnchors (1.46.0.2):
+    - ARCoreNanoPbUpdated/Base (~> 1.46.0.2)
+    - ARCoreNanoPbUpdated/GARSession (~> 1.46.0.2)
+    - ARCoreNanoPbUpdated/TFShared (~> 1.46.0.2)
+    - GTMSessionFetcher/Core (< 4.1.0, >= 3.4)
+    - nanopb (~> 3.30910)
+  - ARCoreNanoPbUpdated/GARSession (1.46.0.2):
+    - ARCoreNanoPbUpdated/Base (~> 1.46.0.2)
+    - Firebase/RemoteConfig (~> 11.2)
+    - nanopb (~> 3.30910)
+  - ARCoreNanoPbUpdated/TFShared (1.46.0.2):
+    - ARCoreNanoPbUpdated/Base (~> 1.46.0.2)
+  - BlueCryptor (1.0.32)
+  - BlueECC (1.2.5)
+  - BlueRSA (1.0.200)
+  - Firebase/CoreOnly (11.9.0):
+    - FirebaseCore (~> 11.9.0)
+  - Firebase/RemoteConfig (11.9.0):
+    - Firebase/CoreOnly
+    - FirebaseRemoteConfig (~> 11.9.0)
+  - FirebaseABTesting (11.9.0):
+    - FirebaseCore (~> 11.9.0)
+  - FirebaseCore (11.9.0):
+    - FirebaseCoreInternal (~> 11.9.0)
+    - GoogleUtilities/Environment (~> 8.0)
+    - GoogleUtilities/Logger (~> 8.0)
+  - FirebaseCoreInternal (11.9.0):
+    - "GoogleUtilities/NSData+zlib (~> 8.0)"
+  - FirebaseInstallations (11.9.0):
+    - FirebaseCore (~> 11.9.0)
+    - GoogleUtilities/Environment (~> 8.0)
+    - GoogleUtilities/UserDefaults (~> 8.0)
+    - PromisesObjC (~> 2.4)
+  - FirebaseRemoteConfig (11.9.0):
+    - FirebaseABTesting (~> 11.0)
+    - FirebaseCore (~> 11.9.0)
+    - FirebaseInstallations (~> 11.0)
+    - FirebaseRemoteConfigInterop (~> 11.0)
+    - FirebaseSharedSwift (~> 11.0)
+    - GoogleUtilities/Environment (~> 8.0)
+    - "GoogleUtilities/NSData+zlib (~> 8.0)"
+  - FirebaseRemoteConfigInterop (11.9.0)
+  - FirebaseSharedSwift (11.9.0)
+  - Flutter (1.0.0)
+  - geolocator_apple (1.2.0):
+    - Flutter
+  - GLTFSceneKit (0.3.0)
+  - GoogleDataTransport (10.1.0):
+    - nanopb (~> 3.30910.0)
+    - PromisesObjC (~> 2.4)
+  - GoogleUtilities/Environment (8.0.2):
+    - GoogleUtilities/Privacy
+  - GoogleUtilities/Logger (8.0.2):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Privacy
+  - "GoogleUtilities/NSData+zlib (8.0.2)":
+    - GoogleUtilities/Privacy
+  - GoogleUtilities/Privacy (8.0.2)
+  - GoogleUtilities/UserDefaults (8.0.2):
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Privacy
+  - GTMSessionFetcher/Core (4.0.0)
+  - KituraContracts (1.2.1):
+    - LoggerAPI (~> 1.7)
+  - LoggerAPI (1.9.200):
+    - Logging (~> 1.1)
+  - Logging (1.4.0)
+  - nanopb (3.30910.0):
+    - nanopb/decode (= 3.30910.0)
+    - nanopb/encode (= 3.30910.0)
+  - nanopb/decode (3.30910.0)
+  - nanopb/encode (3.30910.0)
+  - permission_handler_apple (9.3.0):
+    - Flutter
+  - PromisesObjC (2.4.0)
+  - SwiftJWT (3.6.200):
+    - BlueCryptor (~> 1.0)
+    - BlueECC (~> 1.1)
+    - BlueRSA (~> 1.0)
+    - KituraContracts (~> 1.2)
+    - LoggerAPI (~> 1.7)
+
+DEPENDENCIES:
+  - ar_flutter_plugin_2 (from `.symlinks/plugins/ar_flutter_plugin_2/ios`)
+  - Flutter (from `Flutter`)
+  - geolocator_apple (from `.symlinks/plugins/geolocator_apple/ios`)
+  - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
+
+SPEC REPOS:
+  trunk:
+    - ARCoreNanoPbUpdated
+    - BlueCryptor
+    - BlueECC
+    - BlueRSA
+    - Firebase
+    - FirebaseABTesting
+    - FirebaseCore
+    - FirebaseCoreInternal
+    - FirebaseInstallations
+    - FirebaseRemoteConfig
+    - FirebaseRemoteConfigInterop
+    - FirebaseSharedSwift
+    - GLTFSceneKit
+    - GoogleDataTransport
+    - GoogleUtilities
+    - GTMSessionFetcher
+    - KituraContracts
+    - LoggerAPI
+    - Logging
+    - nanopb
+    - PromisesObjC
+    - SwiftJWT
+
+EXTERNAL SOURCES:
+  ar_flutter_plugin_2:
+    :path: ".symlinks/plugins/ar_flutter_plugin_2/ios"
+  Flutter:
+    :path: Flutter
+  geolocator_apple:
+    :path: ".symlinks/plugins/geolocator_apple/ios"
+  permission_handler_apple:
+    :path: ".symlinks/plugins/permission_handler_apple/ios"
+
+SPEC CHECKSUMS:
+  ar_flutter_plugin_2: 3331cab3eb64e6a61f6df6f7ed2079d9e7c946d4
+  ARCoreNanoPbUpdated: 2fa532214834ff7073153227ee679a92075eed5c
+  BlueCryptor: b0aee3d9b8f367b49b30de11cda90e1735571c24
+  BlueECC: 0d18e93347d3ec6d41416de21c1ffa4d4cd3c2cc
+  BlueRSA: dfeef51db96bcc4edec654956c1581adbda4e6a3
+  Firebase: 819b973f669bc894c85e181f814171e9d4440b29
+  FirebaseABTesting: 7edd6acbd2b75ed72bd7c4d4957ee57914eafc9b
+  FirebaseCore: 7cfcf7e8b33985c06478fd2b96e2f7101eb61a1c
+  FirebaseCoreInternal: 154779013b85b4b290fdba38414df475f42e3096
+  FirebaseInstallations: c76d4931a485fc0cc2dc1d62d3ed0369846ea4b8
+  FirebaseRemoteConfig: 69a9fa23e134776ec99b2bef3ce7804aab7956ea
+  FirebaseRemoteConfigInterop: 710954a00e956c5fe5144a8e46164f0361389203
+  FirebaseSharedSwift: 574e6a5602afe4397a55c8d4f767382d620285de
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  geolocator_apple: 9bcea1918ff7f0062d98345d238ae12718acfbc1
+  GLTFSceneKit: d1b437c514ba2aed5555afb0fddd64e030612d57
+  GoogleDataTransport: aae35b7ea0c09004c3797d53c8c41f66f219d6a7
+  GoogleUtilities: 26a3abef001b6533cf678d3eb38fd3f614b7872d
+  GTMSessionFetcher: 4e28ef1d6434633476ab4328d438d78713fff396
+  KituraContracts: e845e60dc8627ad0a76fa55ef20a45451d8f830b
+  LoggerAPI: ad9c4a6f1e32f518fdb43a1347ac14d765ab5e3d
+  Logging: beeb016c9c80cf77042d62e83495816847ef108b
+  nanopb: fad817b59e0457d11a5dfbde799381cd727c1275
+  permission_handler_apple: 9878588469a2b0d0fc1e048d9f43605f92e6cec2
+  PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
+  SwiftJWT: 88c412708f58c169d431d344c87bc79a87c830ae
+
+PODFILE CHECKSUM: 59050155767cf28bb7dbf5ff3be4df28a5b6a92d
+
+COCOAPODS: 1.16.2
