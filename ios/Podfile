@@ -1,6 +1,8 @@
 # Uncomment this line to define a global platform for your project
 platform :ios, '13.0'
 
+pod 'Firebase/CoreOnly', '10.25.0'  # 這是與當前 firebase_core 兼容的版本
+
 # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
 
