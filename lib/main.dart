@@ -19,7 +19,8 @@ import 'package:vector_math/vector_math_64.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:geoflutterfire2/geoflutterfire2.dart';
+//import 'package:geoflutterfire2/geoflutterfire2.dart';
+import 'package:geoflutterfire_plus/geoflutterfire_plus.dart';
 
 void main() {
   runApp(MyApp());
@@ -442,7 +443,7 @@ typedef FirebaseDocumentStreamListener =
 
 class FirebaseManager {
   FirebaseFirestore? firestore;
-  GeoFlutterFire? geo;
+  //GeoFlutterFire? geo;
   CollectionReference? anchorCollection;
   CollectionReference? objectCollection;
 
@@ -451,7 +452,7 @@ class FirebaseManager {
     try {
       // Wait for Firebase to initialize
       await Firebase.initializeApp();
-      geo = GeoFlutterFire();
+      // geo = GeoFlutterFire();
       firestore = FirebaseFirestore.instance;
       anchorCollection = FirebaseFirestore.instance.collection('anchors');
       objectCollection = FirebaseFirestore.instance.collection('objects');
@@ -469,13 +470,15 @@ class FirebaseManager {
         DateTime.now().millisecondsSinceEpoch / 1000 +
         serializedAnchor["ttl"] * 24 * 60 * 60;
     serializedAnchor["expirationTime"] = expirationTime;
-    // Add location
+    // 添加位置
     if (currentLocation != null) {
-      GeoFirePoint myLocation = geo!.point(
-        latitude: currentLocation.latitude,
-        longitude: currentLocation.longitude,
+      // 創建GeoFirePoint
+      final geoFirePoint = GeoFirePoint(
+        GeoPoint(currentLocation.latitude, currentLocation.longitude),
       );
-      serializedAnchor["position"] = myLocation.data;
+
+      // 將地理數據添加到serializedAnchor
+      serializedAnchor["position"] = geoFirePoint.data;
     }
 
     anchorCollection!.add(serializedAnchor)
@@ -513,23 +516,44 @@ class FirebaseManager {
     ;
   }
 
+  // 依位置下載錨點
   void downloadAnchorsByLocation(
     FirebaseDocumentStreamListener listener,
     Position location,
     double radius,
   ) {
-    GeoFirePoint center = geo!.point(
-      latitude: location.latitude,
-      longitude: location.longitude,
+    // 創建中心點
+    final center = GeoFirePoint(
+      GeoPoint(location.latitude, location.longitude),
     );
 
-    Stream<List<DocumentSnapshot>> stream = geo!
-        .collection(collectionRef: anchorCollection!)
-        .within(center: center, radius: radius, field: 'position');
+    // 從文檔獲取GeoPoint的函數
+    GeoPoint geopointFrom(Map<String, dynamic> data) {
+      try {
+        return (data['position'] as Map<String, dynamic>)['geopoint']
+            as GeoPoint;
+      } catch (e) {
+        // 處理格式錯誤
+        //print("Error extracting geopoint: $e");
+        // 返回一個默認值或拋出異常
+        return GeoPoint(0, 0);
+      }
+    }
 
-    stream.listen((List<DocumentSnapshot> documentList) {
-      for (var element in documentList) {
-        listener(element);
+    // 使用GeoCollectionReference進行地理查詢
+    final stream = GeoCollectionReference<Map<String, dynamic>>(
+      anchorCollection as CollectionReference<Map<String, dynamic>>,
+    ).subscribeWithin(
+      center: center,
+      radiusInKm: radius,
+      field: 'position',
+      geopointFrom: geopointFrom,
+    );
+
+    // 處理查詢結果
+    stream.listen((List<DocumentSnapshot<Map<String, dynamic>>> documents) {
+      for (var doc in documents) {
+        listener(doc);
       }
     });
   }

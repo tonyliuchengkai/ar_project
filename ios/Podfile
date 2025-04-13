@@ -68,6 +68,3 @@ post_install do |installer|
     end
   end
 end
-
-# 新增以下代碼以固定Firebase版本
-$FirebaseSDKVersion = '10.25.0'
