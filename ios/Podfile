@@ -69,5 +69,4 @@ post_install do |installer|
   end
 end
 
-# 強制使用Firebase SDK 11.9.0
-#$FirebaseSDKVersion = '11.9.0'
+pod 'Firebase/CoreOnly', '~> 11.9.0'
