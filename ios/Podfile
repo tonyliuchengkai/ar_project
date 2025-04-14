@@ -69,4 +69,4 @@ post_install do |installer|
   end
 end
 
-pod 'Firebase/CoreOnly', '~> 11.0'
+pod 'Firebase/CoreOnly', '~> 11.10'
