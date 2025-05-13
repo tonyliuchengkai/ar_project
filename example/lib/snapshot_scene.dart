@@ -1,8 +1,12 @@
+// ignore_for_file: use_build_context_synchronously, empty_catches, library_private_types_in_public_api
+
 import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:arkit_plugin_example/util/ar_helper.dart';
 import 'package:flutter/material.dart';
 
 class SnapshotScenePage extends StatefulWidget {
+  const SnapshotScenePage({Key? key}) : super(key: key);
+
   @override
   _SnapshotScenePageState createState() => _SnapshotScenePageState();
 }
@@ -22,7 +26,7 @@ class _SnapshotScenePageState extends State<SnapshotScenePage> {
         title: const Text('Snapshot'),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.camera_alt),
+        child: const Icon(Icons.camera_alt),
         onPressed: () async {
           try {
             final image = await arkitController.snapshot();
@@ -34,14 +38,10 @@ class _SnapshotScenePageState extends State<SnapshotScenePage> {
                 ),
               ),
             );
-          } catch (e) {
-            print(e);
-          }
+          } catch (e) {}
         },
       ),
-      body: Container(
-        child: ARKitSceneView(onARKitViewCreated: onARKitViewCreated),
-      ));
+      body: ARKitSceneView(onARKitViewCreated: onARKitViewCreated));
 
   void onARKitViewCreated(ARKitController arkitController) {
     this.arkitController = arkitController;

@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'dart:math' as math;
 import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:flutter/material.dart';
@@ -5,6 +7,8 @@ import 'package:vector_math/vector_math_64.dart' as vector;
 import 'package:collection/collection.dart';
 
 class DistanceTrackingPage extends StatefulWidget {
+  const DistanceTrackingPage({Key? key}) : super(key: key);
+
   @override
   _DistanceTrackingPageState createState() => _DistanceTrackingPageState();
 }
@@ -25,13 +29,11 @@ class _DistanceTrackingPageState extends State<DistanceTrackingPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(title: const Text('Distance Tracking Sample')),
-        body: Container(
-          child: ARKitSceneView(
-            showFeaturePoints: true,
-            planeDetection: ARPlaneDetection.horizontal,
-            onARKitViewCreated: onARKitViewCreated,
-            enableTapRecognizer: true,
-          ),
+        body: ARKitSceneView(
+          showFeaturePoints: true,
+          planeDetection: ARPlaneDetection.horizontal,
+          onARKitViewCreated: onARKitViewCreated,
+          enableTapRecognizer: true,
         ),
       );
 
@@ -50,7 +52,7 @@ class _DistanceTrackingPageState extends State<DistanceTrackingPage> {
   }
 
   void _handleAddAnchor(ARKitAnchor anchor) {
-    if (!(anchor is ARKitPlaneAnchor)) {
+    if (anchor is! ARKitPlaneAnchor) {
       return;
     }
     _addPlane(arkitController, anchor);
@@ -96,7 +98,8 @@ class _DistanceTrackingPageState extends State<DistanceTrackingPage> {
     );
     final material = ARKitMaterial(
       lightingModelName: ARKitLightingModel.constant,
-      diffuse: ARKitMaterialProperty.color(Color.fromRGBO(255, 153, 83, 1)),
+      diffuse:
+          ARKitMaterialProperty.color(const Color.fromRGBO(255, 153, 83, 1)),
     );
     final sphere = ARKitSphere(
       radius: 0.003,

@@ -2,6 +2,8 @@ import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:flutter/material.dart';
 
 class CameraPropertiesPage extends StatefulWidget {
+  const CameraPropertiesPage({Key? key}) : super(key: key);
+
   @override
   State createState() => _CameraPropertiesPageState();
 }
@@ -22,7 +24,7 @@ class _CameraPropertiesPageState extends State<CameraPropertiesPage> {
         title: const Text('Camera Properties'),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.camera_alt),
+        child: const Icon(Icons.camera_alt),
         onPressed: () async {
           late String updatedProperties;
           try {

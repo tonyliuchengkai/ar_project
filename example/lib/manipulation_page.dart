@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api, deprecated_member_use
+
 import 'dart:math' as math;
 import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:flutter/material.dart';
@@ -5,6 +7,8 @@ import 'package:vector_math/vector_math_64.dart' as vector;
 import 'package:collection/collection.dart';
 
 class ManipulationPage extends StatefulWidget {
+  const ManipulationPage({Key? key}) : super(key: key);
+
   @override
   _ManipulationPageState createState() => _ManipulationPageState();
 }
@@ -22,13 +26,11 @@ class _ManipulationPageState extends State<ManipulationPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(title: const Text('Manipulation Sample')),
-        body: Container(
-          child: ARKitSceneView(
-            enablePinchRecognizer: true,
-            enablePanRecognizer: true,
-            enableRotationRecognizer: true,
-            onARKitViewCreated: onARKitViewCreated,
-          ),
+        body: ARKitSceneView(
+          enablePinchRecognizer: true,
+          enablePanRecognizer: true,
+          enableRotationRecognizer: true,
+          onARKitViewCreated: onARKitViewCreated,
         ),
       );
 

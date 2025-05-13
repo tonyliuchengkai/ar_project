@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'dart:math' as math;
 import 'package:vector_math/vector_math_64.dart' as vector;
 
@@ -5,6 +7,8 @@ import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:flutter/material.dart';
 
 class VideoPage extends StatefulWidget {
+  const VideoPage({Key? key}) : super(key: key);
+
   @override
   _VideoPageState createState() => _VideoPageState();
 }

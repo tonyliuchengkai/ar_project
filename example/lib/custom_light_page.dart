@@ -1,8 +1,12 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
 
 class CustomLightPage extends StatefulWidget {
+  const CustomLightPage({Key? key}) : super(key: key);
+
   @override
   _CustomLightPageState createState() => _CustomLightPageState();
 }
@@ -21,11 +25,9 @@ class _CustomLightPageState extends State<CustomLightPage> {
       appBar: AppBar(
         title: const Text('Custom Light Sample'),
       ),
-      body: Container(
-        child: ARKitSceneView(
-          autoenablesDefaultLighting: false,
-          onARKitViewCreated: onARKitViewCreated,
-        ),
+      body: ARKitSceneView(
+        autoenablesDefaultLighting: false,
+        onARKitViewCreated: onARKitViewCreated,
       ));
 
   void onARKitViewCreated(ARKitController arkitController) {

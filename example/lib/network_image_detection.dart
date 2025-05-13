@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'dart:async';
 
 import 'package:arkit_plugin/arkit_plugin.dart';
@@ -5,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
 
 class NetworkImageDetectionPage extends StatefulWidget {
+  const NetworkImageDetectionPage({Key? key}) : super(key: key);
+
   @override
   _NetworkImageDetectionPageState createState() =>
       _NetworkImageDetectionPageState();
@@ -25,6 +29,7 @@ class _NetworkImageDetectionPageState extends State<NetworkImageDetectionPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(title: const Text('Image Detection Sample')),
+        // ignore: avoid_unnecessary_containers
         body: Container(
           child: Stack(
             fit: StackFit.expand,

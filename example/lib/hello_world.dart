@@ -1,9 +1,13 @@
+// ignore_for_file: deprecated_member_use, library_private_types_in_public_api
+
 import 'dart:math' as math;
 import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
 
 class HelloWorldPage extends StatefulWidget {
+  const HelloWorldPage({Key? key}) : super(key: key);
+
   @override
   _HelloWorldPagState createState() => _HelloWorldPagState();
 }
@@ -22,12 +26,10 @@ class _HelloWorldPagState extends State<HelloWorldPage> {
       appBar: AppBar(
         title: const Text('ARKit in Flutter'),
       ),
-      body: Container(
-        child: ARKitSceneView(
-          onARKitViewCreated: onARKitViewCreated,
-          environmentTexturing:
-              ARWorldTrackingConfigurationEnvironmentTexturing.automatic,
-        ),
+      body: ARKitSceneView(
+        onARKitViewCreated: onARKitViewCreated,
+        environmentTexturing:
+            ARWorldTrackingConfigurationEnvironmentTexturing.automatic,
       ));
 
   void onARKitViewCreated(ARKitController arkitController) {

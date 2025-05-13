@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'dart:async';
 
 import 'package:arkit_plugin/arkit_plugin.dart';
@@ -5,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart';
 
 class EarthPage extends StatefulWidget {
+  const EarthPage({Key? key}) : super(key: key);
+
   @override
   _EarthPageState createState() => _EarthPageState();
 }
@@ -23,10 +27,8 @@ class _EarthPageState extends State<EarthPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(title: const Text('Earth Sample')),
-        body: Container(
-          child: ARKitSceneView(
-            onARKitViewCreated: onARKitViewCreated,
-          ),
+        body: ARKitSceneView(
+          onARKitViewCreated: onARKitViewCreated,
         ),
       );
 

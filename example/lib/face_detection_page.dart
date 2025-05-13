@@ -1,8 +1,12 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
 
 class FaceDetectionPage extends StatefulWidget {
+  const FaceDetectionPage({Key? key}) : super(key: key);
+
   @override
   _FaceDetectionPageState createState() => _FaceDetectionPageState();
 }
@@ -23,11 +27,9 @@ class _FaceDetectionPageState extends State<FaceDetectionPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(title: const Text('Face Detection Sample')),
-        body: Container(
-          child: ARKitSceneView(
-            configuration: ARKitConfiguration.faceTracking,
-            onARKitViewCreated: onARKitViewCreated,
-          ),
+        body: ARKitSceneView(
+          configuration: ARKitConfiguration.faceTracking,
+          onARKitViewCreated: onARKitViewCreated,
         ),
       );
 
@@ -38,7 +40,7 @@ class _FaceDetectionPageState extends State<FaceDetectionPage> {
   }
 
   void _handleAddAnchor(ARKitAnchor anchor) {
-    if (!(anchor is ARKitFaceAnchor)) {
+    if (anchor is! ARKitFaceAnchor) {
       return;
     }
     final material = ARKitMaterial(fillMode: ARKitFillMode.lines);

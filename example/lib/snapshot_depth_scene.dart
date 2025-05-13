@@ -1,9 +1,12 @@
+// ignore_for_file: empty_catches, use_build_context_synchronously, library_private_types_in_public_api
+
 import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:arkit_plugin_example/util/ar_helper.dart';
 import 'package:flutter/material.dart';
 
 import 'dart:math' as math;
 
+// ignore: use_key_in_widget_constructors
 class SnapshotDepthScenePage extends StatefulWidget {
   @override
   _SnapshotDepthScenePageState createState() => _SnapshotDepthScenePageState();
@@ -24,7 +27,7 @@ class _SnapshotDepthScenePageState extends State<SnapshotDepthScenePage> {
         title: const Text('Snapshot'),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.camera_alt),
+        child: const Icon(Icons.camera_alt),
         onPressed: () async {
           try {
             final data = await arkitController.snapshotWithDepthData();
@@ -42,16 +45,12 @@ class _SnapshotDepthScenePageState extends State<SnapshotDepthScenePage> {
                 ),
               ),
             );
-          } catch (e) {
-            print(e);
-          }
+          } catch (e) {}
         },
       ),
-      body: Container(
-        child: ARKitSceneView(
-          configuration: ARKitConfiguration.depthTracking,
-          onARKitViewCreated: onARKitViewCreated,
-        ),
+      body: ARKitSceneView(
+        configuration: ARKitConfiguration.depthTracking,
+        onARKitViewCreated: onARKitViewCreated,
       ));
 
   void onARKitViewCreated(ARKitController arkitController) {
@@ -77,7 +76,7 @@ class SnapshotPreview extends StatelessWidget {
         title: const Text('Image Preview'),
         actions: [
           IconButton(
-            icon: Icon(Icons.info),
+            icon: const Icon(Icons.info),
             onPressed: () => Navigator.push(
               context,
               MaterialPageRoute(
@@ -119,19 +118,19 @@ class DepthDataPreview extends StatelessWidget {
       body: ListView(
         children: [
           ListTile(
-            title: Text('Depth Width'),
+            title: const Text('Depth Width'),
             subtitle: Text(depthData['depthWidth']!),
           ),
           ListTile(
-            title: Text('Depth Height'),
+            title: const Text('Depth Height'),
             subtitle: Text(depthData['depthHeight']!),
           ),
           ListTile(
-            title: Text('Intrinsics'),
+            title: const Text('Intrinsics'),
             subtitle: Text(depthData['intrinsics']!),
           ),
           ListTile(
-            title: Text('Depth Map'),
+            title: const Text('Depth Map'),
             subtitle: Text(depthData['depthMap']!),
           ),
         ],

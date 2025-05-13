@@ -1,9 +1,13 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
 import 'package:collection/collection.dart';
 
 class RealTimeUpdatesPage extends StatefulWidget {
+  const RealTimeUpdatesPage({Key? key}) : super(key: key);
+
   @override
   _RealTimeUpdatesPageState createState() => _RealTimeUpdatesPageState();
 }
@@ -26,10 +30,8 @@ class _RealTimeUpdatesPageState extends State<RealTimeUpdatesPage> {
       appBar: AppBar(
         title: const Text('Real Time Updates Sample'),
       ),
-      body: Container(
-        child: ARKitSceneView(
-          onARKitViewCreated: _onARKitViewCreated,
-        ),
+      body: ARKitSceneView(
+        onARKitViewCreated: _onARKitViewCreated,
       ),
     );
   }

@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'dart:ui';
 
 import 'package:arkit_plugin/src/geometries/arkit_anchor.dart';
@@ -219,6 +221,7 @@ class ARKitColorMaskConverter implements JsonConverter<ARKitColorMask?, int?> {
       case ARKitColorMask.alpha:
         return 1;
       case ARKitColorMask.all:
+      // ignore: unreachable_switch_default
       default:
         return 15;
     }
@@ -275,6 +278,7 @@ class ARKitHitTestResultTypeConverter
       case ARKitHitTestResultType.existingPlaneUsingGeometry:
         return 32;
       case ARKitHitTestResultType.unknown:
+      // ignore: unreachable_switch_default
       default:
         return 0;
     }

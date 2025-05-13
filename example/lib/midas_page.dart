@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'dart:math' as math;
 
 import 'package:arkit_plugin/arkit_plugin.dart';
@@ -5,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
 
 class MidasPage extends StatefulWidget {
+  const MidasPage({Key? key}) : super(key: key);
+
   @override
   _MidasPageState createState() => _MidasPageState();
 }
@@ -24,14 +28,12 @@ class _MidasPageState extends State<MidasPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(title: const Text('Midas Sample')),
-        body: Container(
-          child: ARKitSceneView(
-            enableTapRecognizer: true,
-            onARKitViewCreated: onARKitViewCreated,
-            planeDetection: ARPlaneDetection.horizontalAndVertical,
-            environmentTexturing:
-                ARWorldTrackingConfigurationEnvironmentTexturing.automatic,
-          ),
+        body: ARKitSceneView(
+          enableTapRecognizer: true,
+          onARKitViewCreated: onARKitViewCreated,
+          planeDetection: ARPlaneDetection.horizontalAndVertical,
+          environmentTexturing:
+              ARWorldTrackingConfigurationEnvironmentTexturing.automatic,
         ),
       );
 
@@ -72,7 +74,7 @@ class _MidasPageState extends State<MidasPage> {
   }
 
   void _handleAddAnchor(ARKitAnchor anchor) {
-    if (!(anchor is ARKitPlaneAnchor)) {
+    if (anchor is! ARKitPlaneAnchor) {
       return;
     }
     _addPlane(arkitController, anchor);

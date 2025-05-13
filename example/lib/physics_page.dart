@@ -1,9 +1,13 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'dart:math' as math;
 import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
 
 class PhysicsPage extends StatefulWidget {
+  const PhysicsPage({Key? key}) : super(key: key);
+
   @override
   _PhysicsPageState createState() => _PhysicsPageState();
 }
@@ -20,8 +24,7 @@ class _PhysicsPageState extends State<PhysicsPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(title: const Text('Physics Sample')),
-      body: Container(
-          child: ARKitSceneView(onARKitViewCreated: onARKitViewCreated)));
+      body: ARKitSceneView(onARKitViewCreated: onARKitViewCreated));
 
   void onARKitViewCreated(ARKitController arkitController) {
     this.arkitController = arkitController;

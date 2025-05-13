@@ -2,6 +2,8 @@ import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:flutter/material.dart';
 
 class CheckSupportPage extends StatelessWidget {
+  const CheckSupportPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
@@ -21,7 +23,7 @@ class CheckSupportPage extends StatelessWidget {
           future: ARKitPlugin.checkConfiguration(configuration),
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
-              return Text(' loading');
+              return const Text(' loading');
             }
             return Text(snapshot.data! ? ' supported' : ' not supported');
           })

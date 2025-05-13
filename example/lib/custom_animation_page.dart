@@ -1,8 +1,12 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
 
 class CustomAnimationPage extends StatefulWidget {
+  const CustomAnimationPage({Key? key}) : super(key: key);
+
   @override
   _CustomAnimationPageState createState() => _CustomAnimationPageState();
 }
@@ -35,12 +39,10 @@ class _CustomAnimationPageState extends State<CustomAnimationPage> {
             setState(() => idle = !idle);
           },
         ),
-        body: Container(
-          child: ARKitSceneView(
-            showFeaturePoints: true,
-            planeDetection: ARPlaneDetection.horizontal,
-            onARKitViewCreated: onARKitViewCreated,
-          ),
+        body: ARKitSceneView(
+          showFeaturePoints: true,
+          planeDetection: ARPlaneDetection.horizontal,
+          onARKitViewCreated: onARKitViewCreated,
         ),
       );
 
@@ -50,7 +52,7 @@ class _CustomAnimationPageState extends State<CustomAnimationPage> {
   }
 
   void _handleAddAnchor(ARKitAnchor anchor) {
-    if (!(anchor is ARKitPlaneAnchor)) {
+    if (anchor is! ARKitPlaneAnchor) {
       return;
     }
     _addPlane(arkitController, anchor);

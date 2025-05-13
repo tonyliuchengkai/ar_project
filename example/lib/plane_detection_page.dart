@@ -1,9 +1,13 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'dart:math' as math;
 import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
 
 class PlaneDetectionPage extends StatefulWidget {
+  const PlaneDetectionPage({Key? key}) : super(key: key);
+
   @override
   _PlaneDetectionPageState createState() => _PlaneDetectionPageState();
 }
@@ -23,12 +27,10 @@ class _PlaneDetectionPageState extends State<PlaneDetectionPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(title: const Text('Plane Detection Sample')),
-        body: Container(
-          child: ARKitSceneView(
-            showFeaturePoints: true,
-            planeDetection: ARPlaneDetection.horizontal,
-            onARKitViewCreated: onARKitViewCreated,
-          ),
+        body: ARKitSceneView(
+          showFeaturePoints: true,
+          planeDetection: ARPlaneDetection.horizontal,
+          onARKitViewCreated: onARKitViewCreated,
         ),
       );
 
@@ -39,7 +41,7 @@ class _PlaneDetectionPageState extends State<PlaneDetectionPage> {
   }
 
   void _handleAddAnchor(ARKitAnchor anchor) {
-    if (!(anchor is ARKitPlaneAnchor)) {
+    if (anchor is! ARKitPlaneAnchor) {
       return;
     }
     _addPlane(arkitController, anchor);
