@@ -12,6 +12,8 @@ class ClothWareModelTestPage extends StatefulWidget {
 class _ClothWareModelTestPageState extends State<ClothWareModelTestPage> {
   late ARKitController arkitController;
   String modelState = "請點擊按鈕加載模型";
+  bool isBoxLoaded = false;
+  bool isMyModelLoaded = false;
 
   @override
   void dispose() {
@@ -41,16 +43,16 @@ class _ClothWareModelTestPageState extends State<ClothWareModelTestPage> {
                   backgroundColor: Colors.blue,
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                 ),
-                onPressed: () => loadBoxModel(),
-                child: Text('加載Box模型'),
+                onPressed: () => toggleBoxModel(),
+                child: Text(isBoxLoaded ? '移除Box模型' : '加載Box模型'),
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                 ),
-                onPressed: () => loadMyModel(),
-                child: Text('加載我的模型'),
+                onPressed: () => toggleMyModel(),
+                child: Text(isMyModelLoaded ? '移除我的模型' : '加載我的模型'),
               ),
             ],
           ),
@@ -77,55 +79,77 @@ class _ClothWareModelTestPageState extends State<ClothWareModelTestPage> {
     arkitController = controller;
   }
 
-  void loadBoxModel() {
-    try {
-      // 清除之前的模型
+  void toggleBoxModel() {
+    if (isBoxLoaded) {
+      // 移除Box模型
       arkitController.remove("modelNode");
-
-      final position = vector.Vector3(0, -0.1, -0.5);
-
-      final node = ARKitGltfNode(
-        name: "modelNode",
-        assetType: AssetType.flutterAsset,
-        url: 'assets/gltf/Box.gltf',
-        scale: vector.Vector3(0.05, 0.05, 0.05),
-        position: position,
-      );
-
-      arkitController.add(node);
       setState(() {
-        modelState = "Box模型加載成功";
+        isBoxLoaded = false;
+        modelState = "Box模型已移除";
       });
-    } catch (e) {
-      setState(() {
-        modelState = "Box模型加載失敗: $e";
-      });
+    } else {
+      try {
+        // 清除之前的模型
+        arkitController.remove("modelNode");
+
+        final position = vector.Vector3(0, -0.1, -0.5);
+
+        final node = ARKitGltfNode(
+          name: "modelNode",
+          assetType: AssetType.flutterAsset,
+          url: 'assets/gltf/Box.gltf',
+          scale: vector.Vector3(0.05, 0.05, 0.05),
+          position: position,
+        );
+
+        arkitController.add(node);
+        setState(() {
+          isBoxLoaded = true;
+          isMyModelLoaded = false;
+          modelState = "Box模型加載成功";
+        });
+      } catch (e) {
+        setState(() {
+          modelState = "Box模型加載失敗: $e";
+        });
+      }
     }
   }
 
-  void loadMyModel() {
-    try {
-      // 清除之前的模型
+  void toggleMyModel() {
+    if (isMyModelLoaded) {
+      // 移除我的模型
       arkitController.remove("modelNode");
-
-      final position = vector.Vector3(0, -0.1, -0.5);
-
-      final node = ARKitGltfNode(
-        name: "modelNode",
-        assetType: AssetType.flutterAsset,
-        url: 'assets/gltf/1-1.gltf', // 您的模型文件
-        scale: vector.Vector3(0.05, 0.05, 0.05),
-        position: position,
-      );
-
-      arkitController.add(node);
       setState(() {
-        modelState = "我的模型加載成功";
+        isMyModelLoaded = false;
+        modelState = "我的模型已移除";
       });
-    } catch (e) {
-      setState(() {
-        modelState = "我的模型加載失敗: $e";
-      });
+    } else {
+      try {
+        // 清除之前的模型
+        arkitController.remove("modelNode");
+
+        final position = vector.Vector3(0, -0.1, -0.5);
+
+        final node = ARKitGltfNode(
+          name: "modelNode",
+          assetType: AssetType.flutterAsset,
+          url: 'assets/gltf/1-1.gltf', // 您的模型文件
+          scale: vector.Vector3(0.05, 0.05, 0.05),
+          position: position,
+        );
+
+        arkitController.add(node);
+        setState(() {
+          isMyModelLoaded = true;
+          isBoxLoaded = false;
+          modelState = "我的模型加載成功";
+        });
+      } catch (e) {
+        setState(() {
+          modelState = "我的模型加載失敗: $e";
+        });
+      }
     }
   }
 }
