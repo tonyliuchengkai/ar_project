@@ -26,6 +26,7 @@ import './video_page.dart';
 import './widget_projection.dart';
 import './real_time_updates.dart';
 import 'package:flutter/material.dart';
+import './model_test.dart';
 
 void main() => runApp(const MaterialApp(home: MyApp()));
 
@@ -153,6 +154,14 @@ class MyApp extends StatelessWidget {
         Icons.folder_copy,
         () => Navigator.of(context).push<void>(
           MaterialPageRoute(builder: (c) => const LoadGltfOrGlbFilePage()),
+        ),
+      ),
+      Sample(
+        'Load clothwaremodel',
+        'Load clothwaremodel from the Flutter assets or the Documents folder',
+        Icons.folder_copy,
+        () => Navigator.of(context).push<void>(
+          MaterialPageRoute(builder: (c) => const ClothWareModelTestPage()),
         ),
       ),
       Sample(
