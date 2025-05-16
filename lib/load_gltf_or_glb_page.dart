@@ -61,7 +61,7 @@ class _LoadGltfOrGlbFilePageState extends State<LoadGltfOrGlbFilePage> {
     // Box model from
     // https://github.com/KhronosGroup/glTF-Sample-Models/raw/master/2.0/Box/glTF-Binary/Box.glb
     //url: 'assets/gltf/Box.gltf',
-    url: 'assets/gltf/1-1.gltf',
+    url: 'assets/gltf/1-1byaspose.gltf',
     scale: vector.Vector3(0.05, 0.05, 0.05),
     position: position,
   );

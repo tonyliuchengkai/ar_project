@@ -134,7 +134,7 @@ class _ClothWareModelTestPageState extends State<ClothWareModelTestPage> {
         final node = ARKitGltfNode(
           name: "modelNode",
           assetType: AssetType.flutterAsset,
-          url: 'assets/gltf/1-1.gltf', // 您的模型文件
+          url: 'assets/gltf/1-1byaspose.gltf', // 您的模型文件
           scale: vector.Vector3(0.05, 0.05, 0.05),
           position: position,
         );
