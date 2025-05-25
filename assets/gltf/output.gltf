@@ -1,0 +1,162 @@
+{
+  "accessors": [
+    {
+      "bufferView": 0,
+      "byteOffset": 0,
+      "componentType": 5125,
+      "normalized": false,
+      "count": 150000,
+      "type": "SCALAR",
+      "max": [
+        32579.0
+      ],
+      "min": [
+        0.0
+      ]
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "normalized": false,
+      "count": 32580,
+      "type": "VEC3",
+      "max": [
+        0.2983948588371277,
+        0.4965045750141144,
+        0.09035185724496841
+      ],
+      "min": [
+        -0.30066975951194763,
+        -0.5,
+        -0.09838293492794037
+      ]
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "normalized": false,
+      "count": 32580,
+      "type": "VEC2",
+      "max": [
+        0.9995519518852234,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0004621148109436035
+      ]
+    }
+  ],
+  "asset": {
+    "generator": "pygltflib@v1.16.4",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 600000
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 600000,
+      "byteLength": 390960
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 990960,
+      "byteLength": 1895848
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2886808,
+      "byteLength": 260640
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "output.bin",
+      "byteLength": 3147448
+    }
+  ],
+  "images": [
+    {
+      "mimeType": "image/png",
+      "bufferView": 2
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "metallicFactor": 1.0,
+        "roughnessFactor": 0.9036020036098448,
+        "baseColorTexture": {
+          "index": 0,
+          "texCoord": 0
+        }
+      },
+      "emissiveFactor": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "alphaMode": "OPAQUE",
+      "alphaCutoff": 0.5,
+      "doubleSided": false
+    }
+  ],
+  "meshes": [
+    {
+      "extras": {
+        "processed": true,
+        "file_path": "/tmp/tmpwmpqdurc.ply",
+        "file_name": "tmpwmpqdurc.ply"
+      },
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 1,
+            "TEXCOORD_0": 2
+          },
+          "indices": 0,
+          "mode": 4,
+          "material": 0
+        }
+      ],
+      "name": "tmpwmpqdurc.ply"
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "name": "world"
+    },
+    {
+      "mesh": 0,
+      "name": "tmpwmpqdurc.ply"
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "source": 0
+    }
+  ]
+}
