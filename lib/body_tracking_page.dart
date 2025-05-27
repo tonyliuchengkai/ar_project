@@ -41,20 +41,21 @@ class _BodyTrackingPageState extends State<BodyTrackingPage> {
       return;
     }
     final transform = anchor.skeleton.modelTransformsFor(
-      ARKitSkeletonJointName.leftHand,
+      ARKitSkeletonJointName.leftShoulder,
     );
     hand = _createSphere(transform!);
     arkitController.add(hand!, parentNodeName: anchor.nodeName);
   }
 
-  ARKitNode _createSphere(Matrix4 transform) {
+  ARKitGltfNode _createSphere(Matrix4 transform) {
     final position = vector.Vector3(
       transform.getColumn(3).x,
       transform.getColumn(3).y,
       transform.getColumn(3).z,
     );
-    return ARKitReferenceNode(
-      url: 'models.scnassets/dash.dae',
+    return ARKitGltfNode(
+      assetType: AssetType.flutterAsset,
+      url: 'assets/gltf/output.gltf',
       scale: vector.Vector3.all(0.5),
       position: position,
     );
