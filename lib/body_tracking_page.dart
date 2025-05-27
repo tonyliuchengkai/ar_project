@@ -64,7 +64,9 @@ class _BodyTrackingPageState extends State<BodyTrackingPage> {
   void _handleUpdateAnchor(ARKitAnchor anchor) {
     if (anchor is ARKitBodyAnchor && mounted) {
       final transform =
-          anchor.skeleton.modelTransformsFor(ARKitSkeletonJointName.leftHand)!;
+          anchor.skeleton.modelTransformsFor(
+            ARKitSkeletonJointName.leftShoulder,
+          )!;
       final position = vector.Vector3(
         transform.getColumn(3).x,
         transform.getColumn(3).y,
