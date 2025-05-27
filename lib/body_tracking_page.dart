@@ -41,7 +41,7 @@ class _BodyTrackingPageState extends State<BodyTrackingPage> {
       return;
     }
     final transform = anchor.skeleton.modelTransformsFor(
-      ARKitSkeletonJointName.leftShoulder,
+      ARKitSkeletonJointName.leftHand,
     );
     hand = _createSphere(transform!);
     arkitController.add(hand!, parentNodeName: anchor.nodeName);
@@ -64,9 +64,7 @@ class _BodyTrackingPageState extends State<BodyTrackingPage> {
   void _handleUpdateAnchor(ARKitAnchor anchor) {
     if (anchor is ARKitBodyAnchor && mounted) {
       final transform =
-          anchor.skeleton.modelTransformsFor(
-            ARKitSkeletonJointName.leftShoulder,
-          )!;
+          anchor.skeleton.modelTransformsFor(ARKitSkeletonJointName.leftHand)!;
       final position = vector.Vector3(
         transform.getColumn(3).x,
         transform.getColumn(3).y,
