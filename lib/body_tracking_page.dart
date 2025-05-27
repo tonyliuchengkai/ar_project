@@ -47,7 +47,7 @@ class _BodyTrackingPageState extends State<BodyTrackingPage> {
     arkitController.add(hand!, parentNodeName: anchor.nodeName);
   }
 
-  ARKitGltfNode _createSphere(Matrix4 transform) {
+  ARKitNode _createSphere(Matrix4 transform) {
     final position = vector.Vector3(
       transform.getColumn(3).x,
       transform.getColumn(3).y,
